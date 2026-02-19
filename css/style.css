@@ -1,0 +1,1805 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    /* Colors - Premium Palette */
+    --primary-color: #D32F2F;
+    /* Energetic Red */
+    --primary-dark: #B71C1C;
+    --secondary-color: #212121;
+    /* Deep Black */
+    --text-color: #FAFAFA;
+    /* Off-white for dark bg */
+    --text-muted: #BDBDBD;
+    --bg-dark: #121212;
+    --bg-card: #1E1E1E;
+    --accent-gold: #FFD700;
+
+    /* Typography */
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Oswald', sans-serif;
+    /* Strong, condensed for gym */
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 2rem;
+    /* 32px */
+    --spacing-lg: 4rem;
+    /* 64px */
+    --spacing-xl: 8rem;
+    /* 128px */
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    /* Base size */
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. TYPOGRAPHY
+   ========================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+    font-style: italic;
+    /* Speed Aesthetic */
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-muted);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+/* Navbar Logo */
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-style: italic;
+    /* Speed Aesthetic */
+}
+
+/* Nav Link */
+.nav-links a {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-style: italic;
+    /* Speed Aesthetic */
+}
+
+/* =========================================
+   3. COMPONENTS
+   ========================================= */
+
+/* Buttons */
+/* Buttons (Global Dynamic Skew) */
+.btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background: transparent;
+    /* Changed from variable to transparent for skew */
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-family: var(--font-heading);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    font-style: italic;
+    /* Speed look */
+    transition: all 0.3s ease;
+}
+
+/* Base Skewed Background */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    transform: skewX(-20deg);
+    z-index: -1;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(211, 47, 47, 0.4);
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hover Effects */
+.btn:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    color: white;
+}
+
+.btn:hover::before {
+    background: linear-gradient(135deg, var(--primary-color) 30%, #ff5252 100%);
+    box-shadow: 0 0 20px rgba(211, 47, 47, 0.6), 0 0 40px rgba(211, 47, 47, 0.2);
+    transform: skewX(-20deg) scale(1.05);
+    border-color: white;
+}
+
+/* Shine Animation */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+    transition: none;
+    z-index: -1;
+}
+
+.btn:hover::after {
+    left: 200%;
+    transition: all 0.6s ease;
+}
+
+/* Outline Variant (Glass Skew) */
+.btn-outline {
+    background: transparent;
+    color: white;
+    /* Default to white for outlines on dark bg */
+    border: none;
+    /* Border is handled by pseudo */
+}
+
+.btn-outline::before {
+    background: rgba(255, 255, 255, 0.05);
+    /* Glassy */
+    border: 2px solid var(--primary-color);
+    box-shadow: none;
+}
+
+.btn-outline:hover::before {
+    background: var(--primary-color);
+    /* Fill on hover */
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(211, 47, 47, 0.6);
+}
+
+.btn-outline:hover {
+    color: white;
+}
+
+/* Cards */
+.card {
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--primary-color);
+}
+
+/* Floating Icons */
+.floating-icons {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+/* Floating Icons (Premium Design) */
+.float-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: var(--accent-gold);
+    /* Gold Icon */
+    background: rgba(18, 18, 18, 0.95);
+    /* Dark Background */
+    border: 1px solid var(--accent-gold);
+    /* Gold Border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy effect */
+    backdrop-filter: blur(5px);
+}
+
+.float-icon:hover {
+    transform: scale(1.1) translateY(-5px);
+    background: var(--primary-color);
+    /* Red on hover */
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(211, 47, 47, 0.4);
+}
+
+/* Remove generic brand colors */
+.whatsapp-float,
+.phone-float {
+    background: rgba(18, 18, 18, 0.95);
+}
+
+/* =========================================
+   4. LAYOUT UTILITIES
+   ========================================= */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) 0;
+}
+
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-header span {
+    color: var(--primary-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-style: italic;
+    /* Speed Aesthetic */
+}
+
+/* Dynamic Navbar Button (Cyber/Sport Shape) */
+.navbar .btn {
+    position: relative;
+    background: transparent !important;
+    /* Remove default rect */
+    color: white !important;
+    z-index: 1;
+    overflow: hidden;
+    /* For shine effect */
+    border: none;
+    padding: 10px 30px;
+    font-style: italic;
+    /* Speed look */
+}
+
+/* Hero Buttons Overrides */
+.hero .btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    margin: 0 10px;
+}
+
+/* Secondary (Outline) Hero Override - Just specific box shadow removal or color tweaks if global isn't enough */
+.hero .btn.btn-outline::before {
+    border-color: white;
+    /* Hero has dark bg, white outline looks better */
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hero .btn.btn-outline:hover {
+    color: var(--primary-color) !important;
+}
+
+.hero .btn.btn-outline:hover::before {
+    background: white;
+    border-color: white;
+}
+
+/* Navbar Button Override (Just for size/padding if needed) */
+.navbar .btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+}
+
+/* Main Content Wrapper (Velocity Skew Target) */
+#main-content {
+    background-color: var(--bg-dark);
+    /* Ensure no gaps */
+    will-change: transform;
+    /* Hint for browser optimization */
+    transition: transform 0.1s linear;
+    /* Smooth micro-stutters */
+    width: 100%;
+    overflow: hidden;
+    /* Prevent horizontal scrollbars from skew */
+}
+
+/* Navbar Decoration */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-container {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-style: italic;
+    /* Speed Aesthetic */
+}
+
+/* Utilities moved here for context */
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-style: italic;
+    /* Speed Aesthetic */
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.menu-btn {
+    display: none;
+    /* Desktop hidden */
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* =========================================
+   5. RESPONSIVE (MOBILE FIRST OVERRIDES)
+   ========================================= */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: var(--spacing-md) 0;
+    }
+
+    /* Mobile Navigation */
+    .nav-links {
+        display: none;
+        /* Logic handled via JS class toggle */
+        position: absolute;
+        top: 60px;
+        /* Navbar height */
+        left: 0;
+        width: 100%;
+        background: var(--bg-card);
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* =========================================
+   6. PAGE SPECIFIC STYLES (INDEX)
+   ========================================= */
+
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: #000;
+    /* Fallback */
+}
+
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    /* Slower, smoother fade */
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.hero-media.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.hero-media.z-top {
+    z-index: 2 !important;
+    /* Force on top during transition */
+    opacity: 1;
+}
+
+/* Mobile: Disable cycle structures, force background */
+@media (max-width: 768px) {
+    .hero {
+        background-image: url('../img/hero/imagenhero1.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-video-container {
+        display: none;
+        /* Hide the JS cycle container entirely on mobile */
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-btns {
+    margin-top: var(--spacing-md);
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* =========================================
+   Neon Pulse Separator (New)
+   ========================================= */
+.neon-separator {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background: var(--bg-dark);
+    /* Blend with next section */
+    overflow: hidden;
+    margin-top: -80px;
+    /* Overlap hero slightly or just sit below */
+    z-index: 5;
+    pointer-events: none;
+}
+
+.neon-separator svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.pulse-path {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 5px var(--primary-color));
+
+    /* Animation Setup */
+    stroke-dasharray: 2000;
+    /* Long enough to cover path */
+    stroke-dashoffset: 2000;
+    /* Hidden initially */
+    animation: pulseDraw 4s ease-in-out infinite;
+}
+
+@keyframes pulseDraw {
+    0% {
+        stroke-dashoffset: 2000;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    40% {
+        stroke-dashoffset: 0;
+        /* Fully Drawn */
+    }
+
+    50% {
+        opacity: 0;
+        /* Fade out at end of draw */
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 0;
+    }
+}
+
+/* Mobile Optimization: Static Line (No animation) */
+@media (max-width: 768px) {
+    .pulse-path {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        animation: none;
+        opacity: 0.5;
+        /* Subtler */
+    }
+}
+
+/* About Section (Redesign) */
+.about-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text {
+    position: relative;
+    z-index: 2;
+}
+
+.stats-strip {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Visuals - Asymmetric Grid */
+.visual-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 50px);
+    position: relative;
+}
+
+/* =========================================
+   Trainers "Heroic Roster" (Redesign)
+   ========================================= */
+
+.trainers-container {
+    padding: 0;
+    overflow: hidden;
+}
+
+.trainer-section {
+    position: relative;
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trainer-layout {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+/* Alternating Layout (Z-Pattern) */
+.trainer-section:nth-child(even) .trainer-layout {
+    flex-direction: row-reverse;
+}
+
+/* Visual Side (Image skew) */
+.trainer-visual {
+    flex: 1;
+    position: relative;
+}
+
+.trainer-img-skew {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    /* Create Trapezoid Shape */
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* Reverse skew for even items to balance design */
+.trainer-section:nth-child(even) .trainer-img-skew {
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+}
+
+.trainer-img-skew img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* Hover Effect on Image */
+.trainer-visual:hover .trainer-img-skew {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(211, 47, 47, 0.3);
+    /* Red Glow */
+}
+
+.trainer-visual:hover img {
+    transform: scale(1.1);
+}
+
+/* Info Side */
+.trainer-info {
+    flex: 1;
+    padding: 0 2rem;
+}
+
+.trainer-info h2 {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.trainer-bio {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 1.5rem;
+}
+
+/* Stats Bars */
+.trainer-stats {
+    margin-bottom: 2rem;
+}
+
+.stat-row {
+    margin-bottom: 1rem;
+}
+
+.stat-row span {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-color);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar .fill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 4px;
+    box-shadow: 0 0 10px var(--primary-color);
+    position: relative;
+}
+
+/* Animated Shimmer on Bar */
+.progress-bar .fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(45deg,
+            rgba(255, 255, 255, 0) 25%,
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(255, 255, 255, 0) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Mobile Overrides */
+@media (max-width: 960px) {
+
+    .trainer-layout,
+    .trainer-section:nth-child(even) .trainer-layout {
+        flex-direction: column;
+        /* Stack vertical */
+        gap: 2rem;
+    }
+
+    .trainer-img-skew,
+    .trainer-section:nth-child(even) .trainer-img-skew {
+        height: 350px;
+        clip-path: none;
+        /* Remove complex shape for mobile clarity */
+        border-radius: 8px;
+        /* Simple rounded corners */
+    }
+
+    .trainer-info h2 {
+        font-size: 2.2rem;
+        /* Smaller title */
+    }
+
+    .trainer-info {
+        padding: 0;
+        /* Remove side padding */
+        text-align: left;
+    }
+}
+
+.visual-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.visual-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.visual-item.large {
+    grid-column: 1 / 9;
+    grid-row: 1 / 11;
+    z-index: 1;
+}
+
+.visual-item.small-top {
+    grid-column: 8 / 13;
+    grid-row: 2 / 7;
+    z-index: 2;
+    border: 4px solid var(--bg-dark);
+}
+
+.visual-item.small-bottom {
+    grid-column: 6 / 11;
+    grid-row: 9 / 13;
+    z-index: 3;
+    border: 4px solid var(--bg-dark);
+}
+
+.watermark-text {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: 0;
+    pointer-events: none;
+    font-family: var(--font-heading);
+    letter-spacing: 10px;
+}
+
+@media (max-width: 900px) {
+    .about-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .visual-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .visual-item.large,
+    .visual-item.small-top,
+    .visual-item.small-bottom {
+        grid-column: auto;
+        grid-row: auto;
+        border: none;
+        height: 250px;
+        /* Uniform height for mobile */
+    }
+
+    .watermark-text {
+        font-size: 4rem;
+        bottom: 0;
+        right: 0;
+    }
+
+    .stats-strip {
+        justify-content: space-around;
+    }
+}
+
+/* Services Teaser (Redesign - Interactive Catalogue) */
+.bg-black {
+    background-color: #000;
+}
+
+.catalogue-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+}
+
+.catalogue-items {
+    list-style: none;
+    margin: 2rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.cat-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cat-item:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cat-num {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    opacity: 0.5;
+}
+
+.cat-link {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    /* Large typical editorial size */
+    color: #555;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: block;
+}
+
+.cat-item:hover .cat-link,
+.cat-item.active .cat-link {
+    color: white;
+    transform: translateX(10px);
+}
+
+.cat-item:hover .cat-num,
+.cat-item.active .cat-num {
+    opacity: 1;
+}
+
+/* Dynamic Image Frame */
+.image-frame {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease-in-out;
+    /* The JS will handle the src swap, CSS handles fade if we wanted, 
+       but simple src swap is instant feeling which is also good. 
+       We can add a fade class via JS for smoothness. */
+}
+
+.image-frame::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    /* Slight tint */
+    pointer-events: none;
+}
+
+/* Mobile Layout - Catalogue */
+@media (max-width: 900px) {
+    .catalogue-layout {
+        display: block;
+    }
+
+    .service-preview {
+        display: none;
+        /* Hide the large frame on mobile */
+    }
+
+    .catalogue-items {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        /* Reset */
+    }
+
+    .cat-item {
+        position: relative;
+        height: 200px;
+        /* Tall blocks */
+        border: none;
+        padding: 0;
+        margin-bottom: 5px;
+        overflow: hidden;
+        align-items: flex-end;
+        /* Text at bottom */
+        justify-content: flex-start;
+    }
+
+    /* We need to use pseudo-elements or background images for mobile 
+       since the HTML structure is list-based. 
+       Actually, a cleaner mobile approach for this specific list HTML 
+       is to keep it simple list or use JS to inject backgrounds.
+       
+       Simpler Mobile Fallback compliant with "Vertical Stack":
+       Keep the list but styled as block links with borders.
+       Or, to match the visual promise, let's style them as blocks.
+    */
+
+    .cat-item {
+        /* Fallback for list items on mobile to be large clickable areas */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1.5rem;
+        background: var(--bg-card);
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .cat-link {
+        font-size: 1.5rem;
+        color: white;
+        /* Always white on mobile */
+        transform: none;
+    }
+
+    .cat-item:hover .cat-link {
+        transform: translateX(5px);
+    }
+}
+
+/* Banner CTA (Trainers) */
+.banner-cta {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+}
+
+.banner-content h3 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* Locations Stream (Redesign - Diagonal Stream) */
+.container-fluid {
+    width: 100%;
+    padding: 0;
+}
+
+.diagonal-stream {
+    display: flex;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+    /* Space for the tilt to not get cut off if needed */
+}
+
+.stream-item {
+    flex: 1;
+    position: relative;
+    height: 100%;
+    margin: 0 -20px;
+    /* Negative margin for overlap */
+    clip-path: polygon(20% 0, 100% 0, 80% 100%, 0% 100%);
+    /* Parallelogram shape */
+    transition: all 0.4s ease;
+    overflow: hidden;
+    text-decoration: none;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.stream-item:hover {
+    flex: 1.5;
+    /* Expand */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    /* Straighten */
+    z-index: 10;
+    /* Bring to front */
+    margin: 0;
+}
+
+.stream-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+    filter: brightness(0.6);
+}
+
+.stream-item:hover .stream-bg {
+    transform: scale(1.1);
+    filter: brightness(1);
+    /* Brighten */
+}
+
+.stream-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    text-align: center;
+}
+
+.stream-item:hover .stream-content {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.stream-content h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.2rem;
+    transform: skewX(-10deg);
+    /* Counter-skew if needed, but here straightens on hover */
+    transition: transform 0.4s ease;
+}
+
+.stream-item:hover .stream-content h3 {
+    transform: skewX(0);
+}
+
+.stream-content span {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Mobile Layout - Locations */
+@media (max-width: 900px) {
+    .diagonal-stream {
+        flex-direction: column;
+        height: auto;
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+
+    .stream-item {
+        width: 100%;
+        height: 250px;
+        /* Fixed height for blocks */
+        clip-path: none;
+        /* Remove slant */
+        margin: 0;
+        border-radius: 8px;
+        /* Rounded corners for mobile cards */
+        border: none;
+        flex: none;
+    }
+
+    .stream-item:hover {
+        flex: none;
+        clip-path: none;
+    }
+
+    .stream-bg {
+        filter: brightness(0.8);
+    }
+
+    .stream-content h3 {
+        transform: none;
+        /* No skew on mobile */
+    }
+}
+
+/* Contact Form */
+.container-sm {
+    max-width: 700px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: white;
+    font-family: var(--font-main);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+button.btn-block {
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    background: #000;
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+    border-top: 1px solid #222;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #111;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .hero-btns {
+        flex-direction: column;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   7. PAGE SPECIFIC STYLES (SERVICIOS)
+   ========================================= */
+
+.page-header {
+    margin-top: 80px;
+    /* Navbar height */
+    padding: var(--spacing-lg) 0;
+    background: #000;
+}
+
+.service-category {
+    margin-bottom: var(--spacing-lg);
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.category-header img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.category-header h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-shadow: 2px 2px 4px black;
+    color: white;
+}
+
+.service-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    border: 1px solid var(--primary-color);
+    text-align: center;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-price {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+/* =========================================
+   8. PAGE SPECIFIC STYLES (ENTRENADORES)
+   ========================================= */
+
+.trainers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.trainer-card {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.trainer-img-wrapper {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.trainer-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.trainer-card:hover .trainer-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.trainer-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 2rem;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.trainer-card:hover .trainer-overlay {
+    transform: translateY(0);
+}
+
+.trainer-overlay h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.trainer-overlay p {
+    font-size: 0.9rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   9. PAGE SPECIFIC STYLES (SEDES)
+   ========================================= */
+
+.location-section {
+    margin-bottom: 4rem;
+    background: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    padding-bottom: 2rem;
+}
+
+.location-header {
+    position: relative;
+    height: 250px;
+}
+
+.location-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.location-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(to top, black, transparent);
+}
+
+.location-title h2 {
+    margin-bottom: 0.5rem;
+}
+
+.location-title p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #ddd;
+}
+
+.maps-grid {
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+.map-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.map-container iframe {
+    border-radius: 8px;
+    filter: grayscale(0.8) invert(0.1);
+    transition: filter 0.3s ease;
+}
+
+.map-container iframe:hover {
+    filter: none;
+}
+
+/* =========================================
+   Developer Badge (NextWeb CR)
+   ========================================= */
+.developer-badge {
+    position: fixed;
+    bottom: 110px;
+    /* Above Tawk.to */
+    right: 20px;
+    z-index: 9999;
+    background: #000;
+    border: 1px solid #FFD700;
+    /* Yellow Gold */
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, bottom 0.3s ease;
+    text-decoration: none !important;
+    pointer-events: auto;
+}
+
+.developer-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
+}
+
+.developer-badge img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.developer-text {
+    display: flex;
+    flex-direction: row;
+    /* Single line */
+    align-items: center;
+    gap: 4px;
+}
+
+.developer-badge span {
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    /* Slight increase for readability */
+    line-height: 1;
+    opacity: 0.9;
+}
+
+.developer-badge strong {
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    /* Match span size for uniform look */
+    line-height: 1;
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .developer-badge {
+        bottom: 90px;
+        right: 15px;
+        padding: 6px 10px;
+        transform-origin: bottom right;
+        transform: scale(0.9);
+    }
+}
+
+/* =========================================
+   Kinetic Mesh Background (Services Hero)
+   ========================================= */
+.page-header {
+    position: relative;
+    overflow: hidden;
+    /* Contain the mesh */
+}
+
+.kinetic-mesh-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* Behind content */
+    pointer-events: none;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 1;
+    /* Content above mesh */
+}
+
+.kinetic-svg rect {
+    animation: meshPan 20s linear infinite;
+}
+
+/* Subtle Pulse for the decorative circle */
+.pulse-circle {
+    transform-origin: center;
+    animation: kineticBreath 8s ease-in-out infinite;
+}
+
+@keyframes meshPan {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-40px);
+    }
+
+    /* Slide pattern */
+}
+
+@keyframes kineticBreath {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+/* Mobile: Simplify */
+@media (max-width: 768px) {
+    .kinetic-svg {
+        opacity: 0.5;
+    }
+
+    .kinetic-svg rect,
+    .pulse-circle {
+        animation: none;
+        /* Static on mobile for performance */
+    }
+}
+
+/* =========================================
+   Forged Carbon Texture (Legado Section)
+   ========================================= */
+.bg-forged-carbon {
+    background-color: #0a0a0a;
+    background-image:
+        linear-gradient(45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.03) 75%, rgba(255, 255, 255, 0.03)),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.03) 75%, rgba(255, 255, 255, 0.03));
+    background-position: 0 0, 20px 20px;
+    background-size: 40px 40px;
+    position: relative;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+}
+
+/* Shard overlay to break the pattern */
+.bg-forged-carbon::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 40%, rgba(255, 255, 255, 0.02) 2%, transparent 10%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 5%, transparent 15%);
+    pointer-events: none;
+}

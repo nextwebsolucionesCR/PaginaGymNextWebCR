@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymTiquicia - Tu Mejor Versión Empieza Aquí</title>
+    <meta name="description"
+        content="Gimnasio premier en Costa Rica. Entrenadores expertos, equipos de última generación y múltiples sedes.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">GYM<span class="text-primary">TIQUICIA</span></a>
+            <div class="menu-btn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="entrenadores.html">Entrenadores</a></li>
+                <li><a href="sedes.html">Sedes</a></li>
+                <li><a href="#contacto" class="btn btn-sm">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-video-container">
+                <!-- Video Player 1 (Primary) -->
+                <video id="hero-video" class="hero-media active" autoplay muted playsinline
+                    poster="img/hero/imagenhero1.jpg">
+                    <source src="video/hero/videohero2.mp4" type="video/mp4">
+                </video>
+
+                <!-- Video Player 2 (Secondary - Buffer) -->
+                <video id="hero-video-secondary" class="hero-media" muted playsinline></video>
+
+                <!-- Static Image Slide (Hidden by default) -->
+                <div id="hero-image-slide" class="hero-media"
+                    style="background-image: url('img/hero/imagenhero1.jpg');">
+                </div>
+
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content container">
+                <h1 id="hero-title" class="animate-on-scroll">Transforma tu <span
+                        class="text-primary">Cuerpo</span><br>Transforma tu <span class="text-outline">Mente</span></h1>
+                <p id="hero-desc" class="animate-on-scroll">El gimnasio líder en Costa Rica con equipo de última
+                    generación
+                    y profesionales
+                    dedicados a tu éxito.</p>
+                <div class="hero-btns animate-on-scroll">
+                    <a href="servicios.html" class="btn">Ver Servicios</a>
+                    <a href="#contacto" class="btn btn-outline">Únete Ahora</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Neon Pulse Separator -->
+        <div class="neon-separator bg-forged-carbon">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <!-- The EKG Pulse Path -->
+                <!-- M: Start Left, L: Flat line, l: Pulse Spike (Up/Down), L: Flat line to end -->
+                <path class="pulse-path" d="M0,60 L600,60 l50,-50 l50,100 l50,-50 L1440,60" />
+            </svg>
+        </div>
+
+        <!-- About Section (Redesign) -->
+        <section id="nosotros" class="section-padding about-section bg-forged-carbon">
+            <div class="container">
+                <div class="about-wrapper">
+
+                    <!-- Content Side -->
+                    <div class="about-text animate-on-scroll">
+                        <div class="section-header text-left reveal-text">
+                            <span>Nuestra Esencia</span>
+                            <h2>Legado de <span class="text-primary">Fuerza</span></h2>
+                        </div>
+                        <p>En GymTiquicia no solo construimos cuerpos, forjamos caracteres. Desde 2010, hemos sido el
+                            templo
+                            donde la disciplina se encuentra con la pasión. No somos un gimnasio convencional; somos una
+                            hermandad dedicada a romper límites.</p>
+                        <p>Nuestras instalaciones de vanguardia son solo el escenario; los verdaderos protagonistas son
+                            nuestros miembros que día a día redefinen lo que es posible.</p>
+
+                        <div class="stats-strip">
+                            <div class="stat-item">
+                                <h3>15+</h3>
+                                <p>Años</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>4</h3>
+                                <p>Sedes</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>2k+</h3>
+                                <p>Miembros</p>
+                            </div>
+                        </div>
+
+                        <a href="#contacto" class="btn mt-2">Contactanos</a>
+                    </div>
+
+                    <!-- Visual Side (Asymmetric Grid) -->
+                    <div class="about-visuals animate-on-scroll">
+                        <div class="visual-grid">
+                            <div class="visual-item large">
+                                <img src="img/acerca/acerca1.jpg" alt="Gym Main Floor">
+                            </div>
+                            <div class="visual-item small-top">
+                                <img src="img/acerca/acerca2.jpeg" alt="Athlete Training">
+                            </div>
+                            <div class="visual-item small-bottom">
+                                <img src="img/acerca/acerca3.jpeg" alt="Premium Equipment">
+                            </div>
+                            <div class="watermark-text">LEGACY</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Teaser (Redesign - Interactive Catalogue) -->
+        <section class="services-catalogue section-padding bg-black">
+            <div class="container">
+                <div class="catalogue-layout">
+
+                    <!-- Left: Interactive List -->
+                    <div class="service-list animate-on-scroll">
+                        <div class="section-header text-left reveal-text">
+                            <span>Nuestros Programas</span>
+                            <h2>Entrena a tu Manera</h2>
+                        </div>
+
+                        <ul class="catalogue-items">
+                            <li class="cat-item active"
+                                data-img="img/servicios/servicios_basicos_SUB_area_de_musculacion.png">
+                                <span class="cat-num">01</span>
+                                <a href="servicios.html" class="cat-link">Musculación</a>
+                            </li>
+                            <li class="cat-item" data-img="img/servicios/servicios_basicos_SUB_area_de_cardio.png">
+                                <span class="cat-num">02</span>
+                                <a href="servicios.html" class="cat-link">Cardio</a>
+                            </li>
+                            <li class="cat-item" data-img="img/servicios/clases_colectivas_dirigidas_general.png">
+                                <span class="cat-num">03</span>
+                                <a href="servicios.html" class="cat-link">Clases Grupales</a>
+                            </li>
+                            <li class="cat-item"
+                                data-img="img/servicios/servicios_de_entrenamiento_personalizado_general.png">
+                                <span class="cat-num">04</span>
+                                <a href="servicios.html" class="cat-link">Personal Trainer</a>
+                            </li>
+                        </ul>
+                        <a href="servicios.html" class="btn btn-outline mt-2">Ver Todos los Servicios</a>
+                    </div>
+
+                    <!-- Right: Dynamic Image Frame (Desktop) -->
+                    <div class="service-preview animate-on-scroll">
+                        <div class="image-frame">
+                            <img id="catalogue-img" src="img/servicios/servicios_basicos_SUB_area_de_musculacion.png"
+                                alt="Service Preview">
+                            <div class="frame-overlay"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Trainers Teaser -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <span>Expertos</span>
+                    <h2>Entrenadores de Elite</h2>
+                </div>
+                <div class="banner-cta animate-on-scroll" style="background-image: url('img/equipo/Luis.jpg');">
+                    <div class="banner-content">
+                        <h3>¿Listo para el siguiente nivel?</h3>
+                        <p>Agenda tu sesión personalizada con nuestros expertos.</p>
+                        <a href="entrenadores.html" class="btn">Agendar Con Entrenadores</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Locations Teaser (Redesign - Diagonal Stream) -->
+        <section class="locations-stream section-padding bg-darker">
+            <div class="container-fluid p-0"> <!-- Full width container -->
+                <div class="section-header animate-on-scroll text-center mb-5 reveal-text">
+                    <span>Cerca de Ti</span>
+                    <h2>Nuestras Sedes</h2>
+                </div>
+
+                <div class="diagonal-stream animate-on-scroll">
+
+                    <!-- Item 1 -->
+                    <a href="sedes.html" class="stream-item">
+                        <div class="stream-bg" style="background-image: url('img/locales/liberia.jpg');"></div>
+                        <div class="stream-content">
+                            <h3>Liberia</h3>
+                            <span>Guanacaste</span>
+                        </div>
+                    </a>
+
+                    <!-- Item 2 -->
+                    <a href="sedes.html" class="stream-item">
+                        <div class="stream-bg" style="background-image: url('img/locales/cartago.jpg');"></div>
+                        <div class="stream-content">
+                            <h3>Cartago</h3>
+                            <span>Cartago</span>
+                        </div>
+                    </a>
+
+                    <!-- Item 3 -->
+                    <a href="sedes.html" class="stream-item">
+                        <div class="stream-bg" style="background-image: url('img/locales/puntarenas.jpg');"></div>
+                        <div class="stream-content">
+                            <h3>Puntarenas</h3>
+                            <span>Puntarenas</span>
+                        </div>
+                    </a>
+
+                    <!-- Item 4 -->
+                    <a href="sedes.html" class="stream-item">
+                        <div class="stream-bg" style="background-image: url('img/locales/tamarindo.jpg');"></div>
+                        <div class="stream-content">
+                            <h3>Tamarindo</h3>
+                            <span>Guanacaste</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contacto" class="section-padding">
+            <div class="container container-sm">
+                <div class="section-header animate-on-scroll">
+                    <span>Contáctanos</span>
+                    <h2>Empieza Hoy</h2>
+                </div>
+                <form id="contact-form" class="animate-on-scroll" data-emailjs="true"> <!-- Placeholder for JS logic -->
+                    <div class="form-group">
+                        <input type="text" placeholder="Nombre Completo" required>
+                    </div>
+                    <div class="form-group grid-2">
+                        <input type="email" placeholder="Correo Electrónico" required>
+                        <input type="tel" placeholder="Teléfono" required>
+                    </div>
+                    <div class="form-group">
+                        <select>
+                            <option value="">Selecciona una Sede de Interés</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Cartago">Cartago</option>
+                            <option value="Puntarenas">Puntarenas</option>
+                            <option value="Tamarindo">Tamarindo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-block">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <a href="#" class="logo">GYM<span class="text-primary">TIQUICIA</span></a>
+                        <p>El mejor lugar para transformar tu vida.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Enlaces</h4>
+                        <ul>
+                            <li><a href="servicios.html">Servicios</a></li>
+                            <li><a href="entrenadores.html">Entrenadores</a></li>
+                            <li><a href="sedes.html">Sedes</a></li>
+                            <li><a href="privacidad.html">Privacidad</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li>info@gymtiquicia.com</li>
+                            <li>+506 8888-8888</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    &copy; 2026 GymTiquicia. Todos los derechos reservados.
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Floating Icons -->
+    <div class="floating-icons">
+        <a href="https://wa.me/50688888888" target="_blank" class="float-icon whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+50688888888" class="float-icon phone-float">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Developer Badge -->
+    <a href="#" class="developer-badge" target="_blank">
+        <img src="img/logo.png" alt="NextWeb CR">
+        <div class="developer-text">
+            <span>Desarrollado por</span>
+            <strong>NextWeb CR</strong>
+        </div>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

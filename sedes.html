@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sedes - GymTiquicia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">GYM<span class="text-primary">TIQUICIA</span></a>
+            <div class="menu-btn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="entrenadores.html">Entrenadores</a></li>
+                <li><a href="sedes.html" class="active">Sedes</a></li>
+                <li><a href="index.html#contacto" class="btn btn-sm">Contacto</a></li>
+            </ul>
+    </nav>
+
+    <header class="page-header">
+        <!-- Kinetic Mesh Background -->
+        <div class="kinetic-mesh-bg">
+            <svg class="kinetic-svg" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="meshGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#meshGrid)" />
+                <circle cx="50%" cy="50%" r="40%" fill="none" stroke="rgba(211, 47, 47, 0.1)" stroke-width="2"
+                    class="pulse-circle" />
+            </svg>
+        </div>
+        <div class="container text-center">
+            <h1 class="animate-on-scroll">Nuestras <span class="text-primary">Sedes</span></h1>
+            <p class="animate-on-scroll">Encuentra tu gimnasio más cercano.</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Liberia -->
+        <section class="location-section animate-on-scroll">
+            <div class="location-header">
+                <img src="img/locales/liberia.jpg" alt="Liberia">
+                <div class="location-title">
+                    <h2>Liberia</h2>
+                    <p><i class="fas fa-map-marker-alt text-primary"></i> 200m este Banco Central</p>
+                </div>
+            </div>
+            <div class="maps-grid grid-2">
+                <div class="map-container">
+                    <h3>Google Maps</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60617.60704605025!2d-85.51711382490151!3d10.629533388934833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f757d2a8a1c08e5%3A0xb2f8a494fb368393!2sProvincia%20de%20Guanacaste%2C%20Liberia!5e1!3m2!1ses-419!2scr!4v1769628204690!5m2!1ses-419!2scr"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="map-container">
+                    <h3>Waze</h3>
+                    <iframe src="https://embed.waze.com/iframe?zoom=16&lat=10.636270&lon=-85.430546&ct=livemap"
+                        width="100%" height="300" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cartago -->
+        <section class="location-section animate-on-scroll">
+            <div class="location-header">
+                <img src="img/locales/cartago.jpg" alt="Cartago">
+                <div class="location-title">
+                    <h2>Cartago</h2>
+                    <p><i class="fas fa-map-marker-alt text-primary"></i> 400 metros norte de Restaurante Food</p>
+                </div>
+            </div>
+            <div class="maps-grid grid-2">
+                <div class="map-container">
+                    <h3>Google Maps</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60766.0012329061!2d-83.96638927949621!3d9.854204852301624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0df1021af2921%3A0xb5e5548558a39c52!2sProvincia%20de%20Cartago%2C%20Cartago!5e1!3m2!1ses-419!2scr!4v1769628282027!5m2!1ses-419!2scr"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="map-container">
+                    <h3>Waze</h3>
+                    <iframe src="https://embed.waze.com/iframe?zoom=13&lat=9.864166&lon=-83.921642&ct=livemap"
+                        width="100%" height="300" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Puntarenas -->
+        <section class="location-section animate-on-scroll">
+            <div class="location-header">
+                <img src="img/locales/puntarenas.jpg" alt="Puntarenas">
+                <div class="location-title">
+                    <h2>Puntarenas</h2>
+                    <p><i class="fas fa-map-marker-alt text-primary"></i> 100 metros este de McDonalds</p>
+                </div>
+            </div>
+            <div class="maps-grid grid-2">
+                <div class="map-container">
+                    <h3>Google Maps</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30371.47531201622!2d-84.84282060196878!3d9.978550118033002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa02eb96dada6b7%3A0x3f48bd110f83d5ec!2sProvincia%20de%20Puntarenas%2C%20Puntarenas!5e1!3m2!1ses-419!2scr!4v1769628403476!5m2!1ses-419!2scr"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="map-container">
+                    <h3>Waze</h3>
+                    <iframe src="https://embed.waze.com/iframe?zoom=14&lat=9.979155&lon=-84.829731&ct=livemap"
+                        width="100%" height="300" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tamarindo -->
+        <section class="location-section animate-on-scroll">
+            <div class="location-header">
+                <img src="img/locales/tamarindo.jpg" alt="Tamarindo">
+                <div class="location-title">
+                    <h2>Tamarindo</h2>
+                    <p><i class="fas fa-map-marker-alt text-primary"></i> 50 metros sur de Taco Bell</p>
+                </div>
+            </div>
+            <div class="maps-grid grid-2">
+                <div class="map-container">
+                    <h3>Google Maps</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15170.466267769609!2d-85.84836965417702!3d10.3008884371251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f9e39409203c30f%3A0xbb189f5e2cc1f893!2sProvincia%20de%20Guanacaste%2C%20Tamarindo!5e1!3m2!1ses-419!2scr!4v1769628482557!5m2!1ses-419!2scr"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="map-container">
+                    <h3>Waze</h3>
+                    <iframe src="https://embed.waze.com/iframe?zoom=15&lat=10.297856&lon=-85.841417&ct=livemap"
+                        width="100%" height="300" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p class="copyright">&copy; 2026 GymTiquicia. Todos los derechos reservados.</p>
+            <p><a href="privacidad.html"
+                    style="color: var(--color-light); text-decoration: none; font-size: 0.9rem;">Política de
+                    Privacidad</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Icons -->
+    <div class="floating-icons">
+        <a href="https://wa.me/50688888888" target="_blank" class="float-icon whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+50688888888" class="float-icon phone-float">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Developer Badge -->
+    <a href="#" class="developer-badge" target="_blank">
+        <img src="img/logo.png" alt="NextWeb CR">
+        <div class="developer-text">
+            <span>Desarrollado por</span>
+            <strong>NextWeb CR</strong>
+        </div>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
