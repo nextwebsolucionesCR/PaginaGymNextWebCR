@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const serviceName = btn.getAttribute('data-service');
-            const phone = "50688888888"; // Replace with actual number
+            const phone = "506"; // R70204207eplace with actual number
             const message = `Hola, me interesa información sobre ${serviceName}`;
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
